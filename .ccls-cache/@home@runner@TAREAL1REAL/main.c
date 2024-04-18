@@ -143,6 +143,7 @@ void mostrar_lista_prioridad(List *lista) {
              paciente->sintoma);
     }
   }
+  puts("========================================");
   if (contador == 0) {
     limpiarPantalla();
     puts("No hay pacientes con esa prioridad");
