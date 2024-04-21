@@ -23,7 +23,7 @@ Para la realizacion del codigo, se crean diferentes funciones que ayudan a la cr
 
 **buscar_paciente** : Funcion que busca a un paciente en especifico comparando el nombre.
 
-**compararPrioridad** : Funcion que compara la prioridad del paciente que se le cambia la prioridad para poder ordernarlo en la lista.
+**comparar_prioridad** : Funcion que compara la prioridad del paciente que se le cambia la prioridad para poder ordernarlo en la lista.
 
 **mostrar_lista_pacientes** : Funcion que muestra por orden de prioridad y llegada a todos los pacientes registrados.
 
