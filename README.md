@@ -1,5 +1,3 @@
-En este *repl* puedes encontrar varios ejemplos que te pueden ayudar con las tareas de estructura.
-
 ## Código de Ejemplo (main)
 Para ejecutar el main primero debemos compilar (en la carpeta raíz)
 ````
