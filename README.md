@@ -16,18 +16,19 @@ En la carpeta `tdas` se encuentran implementados distintos TDAs que puedes utili
 
 Las implementaciones no son las más eficientes (todas usan como estructura de datos una **lista enlazada**), por lo que puedes reemplazarlas por las que has realizado en los labs.
 
-## Otros códigos (en carpeta examples)
-Para ejecutar los distintos ejemplos que hay en la carpeta `examples`, primero debes compilarlos. Si estamos en la carpeta raíz:
-````
-gcc tdas/*.c examples/example2_menu.c -Wno-unused-result -o example
-````
-Y luego ejecutarlos:
-````
-./example
-````
+## FUNCIONES
+Para la realizacion del codigo, se crean diferentes funciones que ayudan a la creacion del proyecto. Existen diversas y estas son:
 
-Se incluyen los siguientes ejemplos:
-* `example1_list`: Uso del TDA Lista, inserción y eliminación de elementos.
-* `example2_menu`: Ejemplo de menú con submenús.
-* `example3_readcsv`: Ejemplo de lectura desde un archivo csv y almacenamiento en datos estructurados.
-* `example4_map`: Ejemplo de uso del TDA mapa.
+**registrar_paciente** : Funcion que cumple la funcion de añadir un paciente a nuestra lista.
+
+**registrar_prioridad** : Funcion que cambia la prioridad de un paciente (ya que se inicializa en 1).
+
+**buscar_paciente** : Funcion que busca a un paciente en especifico comparando el nombre.
+
+**compararPrioridad** : Funcion que compara la prioridad del paciente que se le cambia la prioridad para poder ordernarlo en la lista.
+
+**mostrar_lista_pacientes** : Funcion que muestra por orden de prioridad y llegada a todos los pacientes registrados.
+
+**atender_paciente** : Funcion que muestra los datos del paciente atendido y luego lo elimina de la lista.
+
+**mostrar_lista_prioridad** : Funcion que muestra a los pacientes de una prioridad en especifico.

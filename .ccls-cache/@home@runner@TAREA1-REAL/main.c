@@ -59,18 +59,22 @@ void registrar_paciente(List *lista, size_t contador) {
 }
 void mostrar_lista_pacientes(List *lista) {
   limpiarPantalla();
+  paciente *pacienteActual = list_first(lista);
+  if (pacienteActual == NULL) {
+    printf("No hay pacientes en la lista.\n");
+    return;
+  }
   puts("========================================");
   puts("NOMBRE - EDAD - SINTOMAS");
   puts("========================================");
-  for (paciente *paciente = list_first(lista); paciente != NULL;
-       paciente =
-           list_next(lista)) { // se utiliza un for para recorrer la lista
-    printf("  %s  -  %d  -  %s  \n", paciente->nombre, paciente->edad,
-           paciente->sintoma);
+  while (pacienteActual != NULL) { // se utiliza un while para recorrer la lista
+    printf("  %s  -  %d  -  %s  \n", pacienteActual->nombre,
+           pacienteActual->edad, pacienteActual->sintoma);
+    pacienteActual = list_next(lista);
   }
   puts("========================================");
 }
-int compararPrioridad(void *data1, void *data2) {
+int comparar_prioridad(void *data1, void *data2) {
   paciente *ptr1 = (paciente *)data1;
   paciente *ptr2 = (paciente *)data2;
   if (ptr1->prioridad > ptr2->prioridad) { // se comparan prioridades, si la
@@ -92,18 +96,18 @@ int compararPrioridad(void *data1, void *data2) {
 void buscar_paciente(List *lista, char *nombre) {
   limpiarPantalla();
   int contador = 0;
-  for (paciente *paciente = list_first(lista); paciente != NULL;
-       paciente =
-           list_next(lista)) { // se utiliza un for para recorrer la lista
-    if (strcmp(paciente->nombre, nombre) ==
+  paciente *pacienteActual = list_first(lista);
+  while (pacienteActual != NULL) { // se utiliza un while para recorrer la lista
+    if (strcmp(pacienteActual->nombre, nombre) ==
         0) { // si el nombre del paciente es igual al nombre ingresado
       contador++;
       printf("Ingrese la prioridad del paciente (1-3): ");
-      scanf("%d", &paciente->prioridad);
+      scanf("%d", &pacienteActual->prioridad);
       list_popCurrent(lista);
-      list_sortedInsert(lista, paciente, compararPrioridad);
+      list_sortedInsert(lista, pacienteActual, comparar_prioridad);
       break;
     }
+    pacienteActual = list_next(lista);
   }
   if (contador == 0) { // si no hay ningun paciente con ese nombre
     puts("Paciente no encontrado");
@@ -142,15 +146,17 @@ void mostrar_lista_prioridad(List *lista) {
   puts("========================================");
   puts("NOMBRE - EDAD - SINTOMAS");
   puts("========================================");
+  paciente *pacienteActual = list_first(lista);
 
-  for (paciente *paciente = list_first(lista); paciente != NULL;
-       paciente = list_next(lista)) {          // for que recorre la lista
-    if (paciente->prioridad == prioridadVer) { // si tiene la misma prioridad
-                                               // que se quiere ver, se printea
+  while (pacienteActual != NULL) { // while que recorre la lista
+    if (pacienteActual->prioridad ==
+        prioridadVer) { // si tiene la misma prioridad
+                        // que se quiere ver, se printea
       contador++;
-      printf("  %s  -  %d  -  %s  \n", paciente->nombre, paciente->edad,
-             paciente->sintoma);
+      printf("  %s  -  %d  -  %s  \n", pacienteActual->nombre,
+             pacienteActual->edad, pacienteActual->sintoma);
     }
+    pacienteActual = list_next(lista);
   }
   puts("========================================");
   if (contador ==
